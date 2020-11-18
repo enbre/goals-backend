@@ -43,8 +43,8 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 // middleware - API routes
-app.use('/api/v1/auth', routes.auth)
-app.use('/api/v1/goals', routes.goals)
+app.use('/auth', routes.auth)
+app.use('/profile', routes.goals)
 
 // connection
 app.listen(port, () => console.log(`Server is running on port ${port}`))
