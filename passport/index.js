@@ -15,6 +15,14 @@ passport.serializeUser((user, done) => {
   this function is called anytime a logged in user makes a request to the application.
   passport adds the user info to req.user and we can use that to verify the authenticated user
 */
+// passport.deserializeUser((id, done) => {
+//   console.log('passport/index.js: deserializeUser function is called');
+  
+//   // look for the user by their ID, return a user object containing only their email
+//   db.user.findByPk(id).then(user => {
+//     done(null, user)
+//   })
+// })
 passport.deserializeUser((id, done) => {
   console.log('passport/index.js: deserializeUser function is called');
   
