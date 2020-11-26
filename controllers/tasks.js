@@ -2,8 +2,18 @@ const db = require('../models')
 
 //working
 const index = (req, res) => {
-    db.task.findAll().then((foundTasks) => {
-        if(!foundTasks) return res.json({
+    // if (!req.query.goal){
+    //     res.sendStatus(400);
+    //     return 
+    // }
+    db.task.findAll(
+    //     {
+    //     where: { 
+    //         goalId: req.query.goal 
+    //     }
+    // }
+    ).then((foundTasks) => {
+        if (!foundTasks) return res.json({
             message: 'No tasks found in database.'
         })
 
@@ -15,12 +25,12 @@ const index = (req, res) => {
 const show = (req, res) => {
     console.log('in the show route')
     console.log(req.params)
-  //not sure React side?
+    //not sure React side?
     db.task.findByPk(req.params.id).then((foundTask) => {
         if (!foundTask) return res.json({
             message: 'task with provided ID not found.'
         })
-        
+
         res.status(200).json({ task: foundTask })
     })
 }

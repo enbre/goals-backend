@@ -1,14 +1,10 @@
 const db = require('../models')
 
 const login = (req, res) => {
-  console.log(req.user)
   res.json( {
     id:req.user.id,
     name: req.user.name
   } ) 
-
-  // this was my attempt to get access to user name. not currently working
-  // res.json({ userName: req.user.name})
 }
 
 const register = (req, res) => {
