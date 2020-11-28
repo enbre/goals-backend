@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   task.init({
     title: DataTypes.STRING,
-    goalId: DataTypes.STRING,
+    goalId: DataTypes.INTEGER,
     completed: DataTypes.BOOLEAN
   }, {
     sequelize,

@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   goal.init({
     title: DataTypes.STRING,
-    userId: DataTypes.STRING,
+    userId: DataTypes.INTEGER,
     completed: DataTypes.BOOLEAN
   }, {
     sequelize,
