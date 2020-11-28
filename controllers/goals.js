@@ -10,7 +10,7 @@ const index = (req, res) => {
     db.goal.findAll(
     //     {
     //     where: { 
-    //         userId: `${req.user.id}`
+    //         userId: `req.user.id`
     //     },
     //     // include: [db.task]
     // }
