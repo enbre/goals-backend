@@ -2,18 +2,14 @@ const db = require('../models')
 
 //working
 const index = (req, res) => {
-    console.log(req.user)
-    // if (!req.user) {
-    //     res.sendStatus(401)
-    //     return
-    // }
-    db.goal.findAll(
-    //     {
-    //     where: { 
-    //         userId: `req.user.id`
-    //     },
-    //     // include: [db.task]
-    // }
+      db.goal.findAll(
+        {
+        where: { 
+            "userId": req.user.id 
+        },
+        order: ['createdAt']
+
+    }
     ).then((foundGoals) => {
         if(!foundGoals) return res.json({
             message: 'No goals found in database.'
@@ -46,9 +42,6 @@ const create = (req, res) => {
 
 //not sure need to get show page working first
 const update = (req, res) => {
-    // console.log(req.body)
-    // console.log(req.params)
-    // debugger
     db.goal.update({
         ...req.body
     }, {

@@ -2,16 +2,11 @@ const db = require('../models')
 
 //working
 const index = (req, res) => {
-    // if (!req.query.goal){
-    //     res.sendStatus(400);
-    //     return 
-    // }
+  
     db.task.findAll(
-    //     {
-    //     where: { 
-    //         goalId: req.query.goal 
-    //     }
-    // }
+        {
+          order: ['createdAt']
+    }
     ).then((foundTasks) => {
         if (!foundTasks) return res.json({
             message: 'No tasks found in database.'
@@ -24,7 +19,7 @@ const index = (req, res) => {
 //not working
 const show = (req, res) => {
     console.log('in the show route')
-    console.log(req.params)
+    console.log(req.params) 
     //not sure React side?
     db.task.findByPk(req.params.id).then((foundTask) => {
         if (!foundTask) return res.json({
