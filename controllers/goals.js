@@ -2,11 +2,18 @@ const db = require('../models')
 
 //working
 const index = (req, res) => {
-    db.goal.findAll().then((foundGoals) => {
+      db.goal.findAll(
+        {
+        where: { 
+            "userId": req.user.id 
+        },
+        order: ['createdAt']
+
+    }
+    ).then((foundGoals) => {
         if(!foundGoals) return res.json({
             message: 'No goals found in database.'
         })
-
         res.status(200).json({ goals: foundGoals });
     })
 }
